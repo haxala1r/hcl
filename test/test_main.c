@@ -10,7 +10,8 @@
  */
 
 int (*test_arr[])(void) = {
-	test_murmur3
+	test_murmur3,
+	test_joaat
 };
 
 
