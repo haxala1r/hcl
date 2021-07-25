@@ -11,7 +11,8 @@
 
 int (*test_arr[])(void) = {
 	test_murmur3,
-	test_joaat
+	test_joaat,
+	test_md5
 };
 
 

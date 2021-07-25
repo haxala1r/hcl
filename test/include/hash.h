@@ -3,5 +3,6 @@
 
 int test_murmur3(void);
 int test_joaat(void);
+int test_md5(void);
 
 #endif

@@ -9,6 +9,7 @@ Currently provided hash algorithms:
 
 - Murmur3 32-bit
 - Jenkin's one at a time
+- MD5
 
 Tests must also be added for each algorithm added.
 
