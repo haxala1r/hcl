@@ -1,6 +1,13 @@
 #include "../../include/hash.h"
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
+
+/* TODO: Add more tests. Currently, these tests aren't stressing it enough.
+ * This goes for pretty much all implemented algorithms btw, there's just
+ * not enough tests in any of them.
+ */
+
 
 char *md5_msgs[] = {
 	"",
@@ -15,16 +22,16 @@ uint8_t md5_expected[][16] = {
 };
 
 int test_md5(void) {
-	uint32_t saw[4];
 	int test_count = sizeof(md5_msgs) / sizeof(*md5_msgs);
 
 	for (int i = 0; i < test_count; i++) {
-		HCL_md5(md5_msgs[i], strlen(md5_msgs[i]), (char*)saw);
+		char *saw = HCL_md5(md5_msgs[i], strlen(md5_msgs[i]));
 		if (memcmp(md5_expected[i], saw, 16)) {
 			printf("[HCL_md5]Test failed for '%s'\n", md5_msgs[i]);
+			free(saw);
 			return -1;
 		}
-
+		free(saw);
 	}
 	printf("[HCL_md5] Test passed\n");
 	return 0;

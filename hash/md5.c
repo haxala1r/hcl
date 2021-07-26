@@ -52,9 +52,11 @@ void HCL_md5_unsafe(unsigned char *msg, int msg_len, char *out) {
 	uint32_t c0 = 0x98badcfe;
 	uint32_t d0 = 0x10325476;
 
+	/* NOTE: this appendage is the "unsafe" part of this function */
 	int new_len = msg_len;
 	msg[new_len++] = 0x80; /* Append a one and 7 zeroes */
 
+	/* Append zeroes until the message length mod 512 is 448 */
 	uint64_t bits = new_len * 8 % 512;
 	while (bits != 448) {
 		msg[new_len++] = 0;
@@ -75,6 +77,7 @@ void HCL_md5_unsafe(unsigned char *msg, int msg_len, char *out) {
 	msg[new_len + 6] = (bits >> 48) & 0xFF;
 	msg[new_len + 7] = (bits >> 56) & 0xFF;
 	new_len += 8;
+
 
 	for (int i = 0; i < new_len; i += 64) {
 		/* Break the 512-bit chunk into 16 4-byte integers */
@@ -135,24 +138,29 @@ void HCL_md5_unsafe(unsigned char *msg, int msg_len, char *out) {
 	return;
 }
 
-void HCL_md5(char *msg, int msg_len, char *out) {
-	if (msg == NULL) return;
-	if (msg_len < 0) return;
-	if (out == NULL) return;
+char *HCL_md5(char *msg, int msg_len) {
+	if (msg == NULL) return NULL;
+	if (msg_len < 0) return NULL;
 
 	/* Create enough space so that HCL_md5_unsafe has enough space to pad it */
 	int mem_len = msg_len + (64 - (msg_len % 64));
 
 	unsigned char *mem = malloc(mem_len);
-	if (mem == NULL) return;
+	if (mem == NULL) return NULL;
 
 	memset(mem, 0, mem_len);
 	memcpy(mem, msg, msg_len);
+
+	char *out = malloc(16);
+	if (out == NULL) {
+		free(mem);
+		return NULL;
+	}
 
 	/* Let HCL_md5_unsafe do its work */
 	HCL_md5_unsafe(mem, msg_len, out);
 
 	/* free the extra memory and return */
 	free(mem);
-	return;
+	return out;
 }

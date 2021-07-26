@@ -1,6 +1,11 @@
 #include "include/hash.h"
 #include <stdio.h>
 
+/* TODO: Add more tests. Currently, these tests aren't stressing it enough.
+ * This goes for pretty much all implemented algorithms btw, there's just
+ * not enough tests in any of them.
+ */
+
 
 /* This is the main file of the test program. */
 
@@ -12,7 +17,8 @@
 int (*test_arr[])(void) = {
 	test_murmur3,
 	test_joaat,
-	test_md5
+	test_md5,
+	test_sha1
 };
 
 
