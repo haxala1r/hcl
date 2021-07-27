@@ -36,13 +36,7 @@ short int shift[64] = {
 
 
 /* DO NOT USE THIS DIRECTLY UNLESS YOU HAVE A GOOD REASON TO.
- * This function assumes that the message has enough extra space to be padded
- * to a multiple of 512 bits. If you did not allocate extra space for it,
- * this function will attempt to modify out of bounds memory.
- *
- * HCL_md5 allocates more space for the message so that HCL_md5_unsafe can
- * do the work without worrying about bounds. Do *NOT* use HCL_md5_unsafe unless
- * you are _really_ concerned about speed (and even then!).
+ * see include/hash.h line 9 for an explanation.
  */
 void HCL_md5_unsafe(unsigned char *msg, int msg_len, char *out) {
 	/* This function works with bytes, msg_len should also be in bytes */

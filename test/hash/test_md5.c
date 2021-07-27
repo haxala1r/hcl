@@ -8,7 +8,6 @@
  * not enough tests in any of them.
  */
 
-
 char *md5_msgs[] = {
 	"",
 	"ABCD",

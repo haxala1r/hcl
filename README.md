@@ -11,6 +11,7 @@ Currently provided hash algorithms:
 - Jenkin's one at a time
 - MD5
 - SHA-1
+- SHA-256
 
 Tests must also be added for each algorithm added.
 
