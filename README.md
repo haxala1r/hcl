@@ -44,15 +44,14 @@ Once you've installed HCL, you can include the HCL headers:
 
 `HCL_sha256("ABCD", 4);`
 
-Just keep in mind you need to pass the `-lHCL` parameter to gcc when compiling
-your code.
+Just keep in mind you need to pass the `-lHCL` parameter to gcc when compiling.
 
 More detailed explanation of what headers and functions are available coming
 soon.
 
 # Contributing
 
-I do accept all kinds of contributions. If you see an error, vulnerability, or
+I accept all kinds of contributions. If you see an error, vulnerability, or
 just something you'd like seeing added, feel absolutely free to open an issue
 or a pull request.
 

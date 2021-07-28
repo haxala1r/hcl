@@ -8,9 +8,8 @@ All paths not beginning with a `/` are relative to the repository root.
 This directory is intended for certain utilities that may be needed for more
 than a single algorithm (i.e. *common* ).
 
-For example, things like `rotr32` (rotate right 32-bit), which aren't provided
-in the C language but still needed for a lot of algorithms, are implemented in
-'common/binary.c' as it is quite commonly needed.
+For example, `rotr32` (rotate right 32-bit) is implemented in 'common/binary.c'
+as it is quite commonly needed, but not provided in the C language.
 
 ## doc/
 
@@ -26,11 +25,8 @@ instead and place all files there.
 ## include/
 
 This directory holds header files that should be included by any program intending
-to use this library. When the (currently non-existent, but planned) installation
-script is ran, the headers under this directory will be copied to /usr/include/
-by 'install.sh' so that you can include them like this:
-
-`#include <HCL/hash.h>`
+to use this library. When the installation script is ran, the headers under this
+directory will be copied to /usr/include/
 
 ## test/
 
