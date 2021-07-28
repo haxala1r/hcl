@@ -25,6 +25,8 @@ char *HCL_sha1(char *msg, uint64_t msg_len);
 void HCL_sha256_unsafe(unsigned char *msg, uint64_t msg_len, char *out);
 char *HCL_sha256(char *msg, uint64_t msg_len);
 
+void HCL_sha512_unsafe(unsigned char *msg, uint64_t msg_len, char *out);
+char *HCL_sha512(char *msg, uint64_t msg_len);
 
 uint32_t HCL_joaat(char *key, int key_len);
 

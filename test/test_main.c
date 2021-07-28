@@ -19,7 +19,8 @@ int (*test_arr[])(void) = {
 	test_joaat,
 	test_md5,
 	test_sha1,
-	test_sha256
+	test_sha256,
+	test_sha512
 };
 
 
