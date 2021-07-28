@@ -35,7 +35,7 @@ do
 done
 
 # Create the library
-ar rcs "libhcl.a" ${LIBOBJ}
+ar rcs "libHCL.a" ${LIBOBJ}
 
 # Build the test program.
-gcc ${TESTOBJ} libhcl.a -o test.elf
+gcc ${TESTOBJ} libHCL.a -o test.elf

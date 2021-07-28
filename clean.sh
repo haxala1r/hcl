@@ -5,5 +5,5 @@ do
 	rm "${F}"
 done
 
-rm libhcl.a
-rm test.elf
+rm *.a
+rm *.elf
